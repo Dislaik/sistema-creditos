@@ -1,0 +1,166 @@
+<div class="container shadow card-register">
+    <h2>Crear cuenta</h2>
+    <hr>
+    <form class="form-register needs-validation" #f="ngForm" (ngSubmit)="onRegister()" novalidate>
+        <div class="container p-0">
+            <div class="row gx-4">
+                <div class="col">
+                    <label for="formGroupExampleInput">R.U.N.</label>
+                </div>
+                <div class="col">
+                    <label for="formGroupExampleInput">Nº de Serie o Documento</label>
+                </div>
+            </div>
+            <div class="row gx-4">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="RUN" autocomplete="off" name="run" onkeypress="return isNumberWithDotAndStripe(event)" oninput="checkRun(this)"
+                    [(ngModel)]="run">
+                    <div id="passwordHelpBlock" class="form-text">
+                        Sin puntos y guión.
+                    </div>
+
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Número de documento" autocomplete="off" name="document" onkeypress="return isNumberWithDot(event)" oninput="checkDocument(this)"
+                    [(ngModel)]="document">
+                    <div id="passwordHelpBlock" class="form-text">
+                        Sin puntos.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-2 p-0">
+            <div class="row gx-4">
+                <div class="col">
+                    <label for="formGroupExampleInput">Correo electronico</label>
+                </div>
+                <div class="col">
+                    <label for="formGroupExampleInput">Contraseña</label>
+                </div>
+            </div>
+            <div class="row gx-4">
+                <div class="col">
+                    <input type="email" class="form-control" id="formGroupExampleInput" name="email" placeholder="Correo electronico"
+                    [(ngModel)]="email">
+                </div>
+                <div class="col">
+                    <input type="password" class="form-control" id="formGroupExampleInput" name="password" placeholder="Contraseña"
+                    [(ngModel)]="password">
+                    <div id="passwordHelpBlock" class="form-text">
+                        Your password must be 8-16 characters long.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-2 p-0">
+            <div class="row gx-4">
+                <div class="col">
+                    <label for="formGroupExampleInput">Nombres</label>
+                </div>
+            </div>
+            <div class="row gx-4">
+                <div class="col">
+                    <input type="text" class="form-control" id="formGroupExampleInput"  name="firstName" placeholder="Primer Nombre"
+                    [(ngModel)]="firstName">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" id="formGroupExampleInput"  name="middleName" placeholder="Segundo Nombre"
+                    [(ngModel)]="middleName">
+                </div>
+            </div>
+        </div>
+        <div class="container mt-2 p-0">
+            <div class="row gx-4">
+                <div class="col">
+                    <label for="formGroupExampleInput">Apellidos</label>
+                </div>
+            </div>
+            <div class="row gx-4">
+                <div class="col">
+                    <input type="text" class="form-control" id="formGroupExampleInput" name="paternalLastName" placeholder="Apellido Paterno"
+                    [(ngModel)]="paternalLastName">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" id="formGroupExampleInput" name="maternalLastName" placeholder="Apellido Materno"
+                    [(ngModel)]="maternalLastName">
+                </div>
+            </div>
+        </div>
+        <div class="container mt-2 p-0">
+            <div class="row gx-4">
+                <div class="col">
+                    <label for="formGroupExampleInput">Fecha de nacimiento</label>
+                </div>
+                <div class="col">
+                    <label for="formGroupExampleInput">Telefono</label>
+                </div>
+            </div>
+            <div class="row gx-4">
+                <div class="col">
+                    <input type="date" class="form-control" id="formGroupExampleInput" name="dateOfBirth" placeholder="Fecha de nacimiento"
+                    [(ngModel)]="dateOfBirth">
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon1">+56</span>
+                        <input type="text" class="form-control" placeholder="Telefono" id="formGroupExampleInput" name="phone" onkeypress="return isNumber(event)"
+                        [(ngModel)]="phone">
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-2 p-0">
+            <div class="row gx-4">
+                <div class="col">
+                    <label for="formGroupExampleInput">Región</label>
+                </div>
+                <div class="col">
+                    <label for="formGroupExampleInput">Comuna</label>
+                </div>
+            </div>
+            <div class="row gx-4">
+                <div class="col">
+                    <select class="form-select" aria-label="Default select example" name="region"
+                    [(ngModel)]="region">
+                        <option value="0" selected>Metropolitana</option>
+                        <option value="Maule">Maule</option>
+                        <option value="2">Bio-Bio</option>
+                        <option value="3">Valparaiso</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <select class="form-select" aria-label="Default select example" name="city"
+                    [(ngModel)]="city">
+                        <option value="0" selected>Santiago</option>
+                        <option value="Constitución">Constitución</option>
+                        <option value="2">Chillan</option>
+                        <option value="3">Valparaiso</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-2 p-0">
+            <div class="row">
+                <div class="col">
+                    <label for="formGroupExampleInput">Dirección</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Dirección" name="address"
+                    [(ngModel)]="address">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="d-flex bd-highlight mt-5">
+            <button type="button" class="me-auto p-2 bd-highlight btn btn-primary justify-content-md-start" [routerLink]="['/login']">
+                <i class="fa fa-solid fa-arrow-left"></i> Volver
+            </button>
+            <button class="p-2 bd-highlight btn btn-primary justify-content-md-end">
+                <i class="fa fa-solid fa-user"></i> Registrar
+            </button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,38 @@
+<div class="container shadow card-signin">
+<form class="form-signin" #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+    <div class="text-center mb-4">
+        <img class="mb-4" src="../../assets/img/ucm-logo.png" alt="" width="150" height="150">
+        <h1 class="h3 mb-3 font-weight-normal">Sistema de acreditación financiero</h1>
+        <p>Proyecto semestral para Ingeniería en Software I de la Universidad Católica del Maule.</p>
+        <div *ngIf="isLoginFail" class="alert alert-danger mt-3">Usuario o contraseña incorrectos.</div>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" name="username" id="floatingInput" placeholder="Usuario" required
+        [(ngModel)]="username">
+        <label for="floatingInput">Usuario</label>
+    </div>
+    <div class="form-floating">
+        <input type="password" class="form-control"  name="password" id="floatingPassword" placeholder="Contraseña"
+        [(ngModel)]="password">
+        <label for="floatingPassword">Contraseña</label>
+    </div>
+    <p class="text-end"><a href="">¿Olvidaste tu contraseña?</a></p>
+    <div class="form-check mt-2">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+        Recordar nombre de usuario
+        </label>
+    </div>
+    <div class="d-grid gap-2 mt-3">
+        <button class="btn btn-primary">
+        <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+        </button>
+    </div>
+</form>
+<p class="text-muted text-center">¿No tienes una cuenta? <a [routerLink]="['/register']">Registrate Aquí</a></p>
+</div>
+
+<!--<footer>
+  <p class="mt-5 mb-3 text-muted text-center">Copyright &copy; 2022 Matías N. Salas.</p>
+</footer>-->
