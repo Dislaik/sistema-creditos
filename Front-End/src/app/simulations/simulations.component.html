@@ -1,0 +1,125 @@
+<app-menu></app-menu>
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  
+  
+  <div class="container">
+    <div class="mt-3 mb-5">
+        <h2>Simulaciones</h2>
+    </div>
+
+    <h5>Simulaciones aceptadas</h5>
+      <div class="container simulations-height overflow-auto">
+          <table class="table table-striped text-center">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">RUN</th>
+                  <th scope="col">Monto solicitado</th>
+                  <th scope="col">N° de cuotas</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Fecha de creación</th>
+                  <th scope="col">Opciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let simulation of tableSimulationsAprobado;let indexOfelement=index;">
+                      <td>{{ indexOfelement + 1 }}</td>
+                      <td>{{ simulation.idPerson.run }}</td>
+                      <td>{{ simulation.requestedAmount }}</td>
+                      <td>{{ simulation.feesAmount }}</td>
+                      <td>{{ simulation.status }}</td>
+                      <td>{{ simulation.createdDate }}</td>
+                      <td>
+                          <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="simulationDetails(simulation)">
+                            Ver detalles
+                          </button>
+                      </td>
+                  </tr>
+                
+              </tbody>
+            </table>
+      </div>
+
+      <h5>Simulaciones rechazadas</h5>
+      <div class="container simulations-height overflow-auto">
+          <table class="table table-striped text-center">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">RUN</th>
+                  <th scope="col">Monto solicitado</th>
+                  <th scope="col">N° de cuotas</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Fecha de creación</th>
+                  <th scope="col">Opciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let simulation of tableSimulationsRechazado;let indexOfelement=index;">
+                      <td>{{ indexOfelement + 1 }}</td>
+                      <td>{{ simulation.idPerson.run }}</td>
+                      <td>{{ simulation.requestedAmount }}</td>
+                      <td>{{ simulation.feesAmount }}</td>
+                      <td>{{ simulation.status }}</td>
+                      <td>{{ simulation.createdDate }}</td>
+                      <td>
+                          <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="simulationDetails(simulation)">
+                            Ver detalles
+                          </button>
+                      </td>
+                  </tr>
+                
+              </tbody>
+            </table>
+      </div>
+            
+
+
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Detalles de simulación</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>RUN: {{this.modalSimulationDetails.run}}</p>
+                  <p>Nombre Completo: {{modalSimulationDetails.fullName}}</p>
+                  <p>Estado: {{modalSimulationDetails.status}}</p>
+                  <p>Estado Civil: {{modalSimulationDetails.civilStatus}}</p>
+                  <p>Trabajo: {{modalSimulationDetails.job}}</p>
+                  <p>Tipo de contrato: {{modalSimulationDetails.jobContract}}</p>
+                  <p>AFP: {{modalSimulationDetails.afp}}</p>
+                  <p>Sueldo Base: {{modalSimulationDetails.salary}}</p>
+                  <p>Honorarios: {{modalSimulationDetails.honorarium}}</p>
+                  <p>Monto solicitado: {{modalSimulationDetails.requestedAmount}}</p>
+                  <p>Cantidad de cuotas: {{modalSimulationDetails.feesAmount}}</p>
+                  <p>Seguro desgravamen: {{modalSimulationDetails.lienInsurance}}</p>
+                  <p>Seguro de cesantía: {{modalSimulationDetails.unemploymentInsurance}}</p>
+                  <p>Tipo de pago: {{modalSimulationDetails.paymentType}}</p>
+                  <p>Fecha de creación: {{modalSimulationDetails.createdDate}}</p>
+                  <p>Fotocopia de cedula de identidad: {{modalSimulationDetails.dniFile}}</p>
+                  <p>Liquidaciones: {{modalSimulationDetails.liquidationFile}}</p>
+                  <p>Certificado de contrato: {{modalSimulationDetails.jobContractFile}}</p>
+                  <p>Certificado de cotizaciones AFP: {{modalSimulationDetails.afpFile}}</p>
+                  <p>Certificado de deuda SBIF: {{modalSimulationDetails.sbifFile}}</p>
+                  <p>Evaluador ¿Cumple con el porcentaje de deuda?: {{modalSimulationDetails.debtPercentageEvaluador}}</p>
+                  <p>Observaciones Evaluador: {{modalSimulationDetails.observationsEvaluador}}</p>
+                  <div *ngIf="role == 'riesgo';then simulationDetailsRiesgo"></div>
+                  <ng-template #simulationDetailsRiesgo>
+                    <p>Riesgo ¿Cumple con el porcentaje de deuda?: {{modalSimulationDetails.debtPercentageRiesgo}}</p>
+                    <p>Observaciones Riesgo: {{modalSimulationDetails.observationsRiesgo}}</p>
+                    <p>Comportamiento crediticio: {{modalSimulationDetails.creditBehaviorRiesgo}}</p>
+                    <p>Historial bancario: {{modalSimulationDetails.bankingHistoryRiesgo}}</p>
+                  </ng-template>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+   </div>
+</main>

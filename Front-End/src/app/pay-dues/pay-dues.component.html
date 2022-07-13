@@ -1,0 +1,41 @@
+<app-menu></app-menu>
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="container">
+      <div class="mt-3 mb-5">
+        <h2>Pagar cuotas</h2>
+      </div>
+
+      <div class="container credits-height overflow-auto">
+        <table class="table table-striped text-center">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">N° simulación</th>
+                <th scope="col">Valor cuota</th>
+                <th scope="col">Mora</th>
+                <th scope="col">Fecha de operación</th>
+                <th scope="col">Fecha de expiración</th>
+                <th scope="col">Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let credit of tableCredits;let indexOfelement=index;">
+                    <td>{{ indexOfelement + 1 }}</td>
+                    <td>{{ credit.idSimulation.id }}</td>
+                    <td>{{ credit.payment}}$</td>
+                    <td>{{ credit.mora }}</td>
+                    <td>{{ credit.operationDate }}</td>
+                    <td>{{ credit.expirationDate }}</td>
+                    <td>
+                        <button type="button" class="btn btn-warning btn-sm" (click)="payCredit(credit)">
+                            Pagar credito
+                        </button>
+                    </td>
+                </tr>
+              
+            </tbody>
+          </table>
+    </div>
+
+   </div>
+</main>
